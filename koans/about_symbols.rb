@@ -23,24 +23,23 @@ class AboutSymbols < Neo::Koan
     assert_equal true, symbol1.object_id == symbol2.object_id
   end
 
-  # def test_method_names_become_symbols
-  #   symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
-  #   assert_equal true, symbols_as_strings.include?("test_method_names_become_symbols")
-  # end
+  def test_method_names_become_symbols
+    symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
+    assert_equal true, symbols_as_strings.include?("test_method_names_become_symbols")
+  end
 
   # THINK ABOUT IT:
   #
   # Why do we convert the list of symbols to strings and then compare
   # against the string value rather than against symbols?
 
-  # in_ruby_version("mri") do
-  #   RubyConstant = "What is the sound of one hand clapping?"
-  #   def test_constants_become_symbols
-  #     all_symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
-
-  #     assert_equal __, all_symbols_as_strings.include?(__)
-  #   end
-  # end
+  in_ruby_version("mri") do
+    RubyConstant = "What is the sound of one hand clapping?"
+    def test_constants_become_symbols
+      all_symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
+      assert_equal true, all_symbols_as_strings.include?("RubyConstant")
+    end
+  end
 
   def test_symbols_can_be_made_from_strings
     string = "catsAndDogs"
